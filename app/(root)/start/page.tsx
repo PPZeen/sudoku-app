@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { UilPlay, UilPause, UilStopwatch, UilBars, UilTachometerFastAlt, UilCheckCircle, UilLightbulbAlt, UilRedo, UilPuzzlePiece } from '@iconscout/react-unicons';
 
 import { GenerateSudoku, SolveSudokuBlindSearch, SolveSudokuHeuristicSearch } from '@/lib';
-import { Dialog, GamePause, GameSolved, SolvedBoard, ButtonDetail } from "@/components";
+import { Dialog, GamePause, GameSolved, SolvedBoard } from "@/components";
 
 const Page = () => {
    const searchParams = useSearchParams();
@@ -109,7 +109,7 @@ const Page = () => {
                   continue;
                }
 
-               let elm = document.getElementById(`row-${row}-col-${col}`);
+               const elm = document.getElementById(`row-${row}-col-${col}`);
                if (elm == null) continue;
 
                const equal = value == boardBlindSearch[row][col];
@@ -137,10 +137,10 @@ const Page = () => {
    const hint = () => {
       if (countHint == 0) return;
 
-      for (let rowIndex of getListRandom()) {
+      for (const rowIndex of getListRandom()) {
          const row = boardCurrent[rowIndex];
          if (row.includes(-1)) { 
-            let colIndex = row.indexOf(-1);
+            const colIndex = row.indexOf(-1);
 
             const value = boardHeuristicSearch[rowIndex][colIndex];
             setHandlerNumber(rowIndex, colIndex, value);
@@ -149,10 +149,6 @@ const Page = () => {
             return;
          }
       }
-   }
-
-   const setHandlerShowReStart = () => {
-      setShowReStart(true)
    }
 
    // --------------------- service function ------------------------------------
@@ -165,10 +161,10 @@ const Page = () => {
    };
 
    const getListRandom = () => {
-      let arr = Array.from({ length: 9 }, (_, i) => i);
+      const arr = Array.from({ length: 9 }, (_, i) => i);
       
       for (let i = arr.length - 1; i > 0; i--) {
-          let j = Math.floor(Math.random() * (i + 1));
+          const j = Math.floor(Math.random() * (i + 1));
           [arr[i], arr[j]] = [arr[j], arr[i]];
       }
       return arr;
@@ -213,9 +209,20 @@ const Page = () => {
                      </div>
 
                      <div className='w-[70%] flex justify-between'>
-                        <ButtonDetail action={checkBoard} childen={<UilCheckCircle className="option-icon" />} title='Check' />
-                        <ButtonDetail action={setHandlerShowReStart} childen={<UilRedo className="option-icon" />} title='Restart' />
-
+                        <button 
+                           onClick={() => checkBoard()}
+                           className='shadow-box w-[30%] aspect-square text-black text-sm font-bold flex flex-col justify-center items-center hover:bg-white/40 hover:text-white/95 hover:fill-white/95 duration-300'
+                        >
+                           <UilCheckCircle className="option-icon" />
+                           <h5>Check</h5>
+                        </button>
+                        <button 
+                           onClick={() => setShowReStart(true)}
+                           className='shadow-box w-[30%] aspect-square text-black text-sm font-bold flex flex-col justify-center items-center hover:bg-white/40 hover:text-white/95 hover:fill-white/95 duration-300'
+                        >
+                           <UilRedo className="option-icon" />
+                           <h5>Restart</h5>
+                        </button>
                         <button 
                            onClick={hint}
                            className='shadow-box w-[30%] relative aspect-square text-black text-sm font-bold flex flex-col justify-center items-center hover:bg-white/40 hover:text-white/95 hover:fill-white/95 duration-300'

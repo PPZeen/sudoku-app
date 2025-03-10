@@ -48,7 +48,7 @@ function SolveSudokuHeuristicSearch(board: Board): SolveResult {
       for (let row = 0; row < 9; row++) {
         for (let col = 0; col < 9; col++) {
           if (board[row][col] === -1) {
-            let possibleNums: number[] = [];
+            const possibleNums: number[] = [];
             for (let num = 1; num <= 9; num++) {
               if (isValid(row, col, num)) {
                 possibleNums.push(num);

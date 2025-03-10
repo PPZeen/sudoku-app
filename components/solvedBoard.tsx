@@ -47,7 +47,7 @@ const SolvedBoard = ({ isBlind, board, steps, showDialog }: SolveBoardProps) => 
 
       return () => clearInterval(nextStep);
 
-   }, [isSet, isStart, initialSteps, countStep, finalStep]);
+   }, [isSet, isStart, isFinished, initialSteps, countStep, finalStep]);
 
    const play = () => {
       if (isFinished) {
