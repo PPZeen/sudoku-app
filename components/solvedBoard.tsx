@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { UilRedo, UilPlay, UilPause, UilMultiply } from '@iconscout/react-unicons';
 
 const SolvedBoard = ({ isBlind, board, steps, showDialog }: SolveBoardProps) => {
-   const duration = 5;
+   const duration = 100;
 
    const [isSet, setIsSet] = useState<boolean>(false);
    const [isStart, setIsStart] = useState<boolean>(false);
