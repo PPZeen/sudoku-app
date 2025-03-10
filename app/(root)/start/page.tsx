@@ -172,7 +172,7 @@ const Page = () => {
    }
 
    return (
-      <Suspense fallback={<div>Loading...</div>}>
+      <>
          <div className='start-container'>
             <div className='w-[80%] aspect-[4/2.8] py-20 px-10 flex gap-4 max-xl:w-[90%] max-xl:px-2 max-lg:w-[98%]'>
 
@@ -298,7 +298,7 @@ const Page = () => {
             {showSolvedHeuristicSearch && (<SolvedBoard isBlind={false} board={board} steps={stepsHeuristicSearch as StepProps[]} showDialog={setShowSolvedHeuristicSearch} />)}
 
          </div>
-      </Suspense>
+      </>
    )
 }
 export default Page
