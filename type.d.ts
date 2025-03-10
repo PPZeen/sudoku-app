@@ -2,7 +2,12 @@ declare global {
    type StepProps = {
       position: [number, number];
       number: number;
-      action: "try" | "place" | "backtrack" | "empty";
+      action:
+      | "place"
+      | "try"
+      | "backtrack"
+      | "H place"
+      | "H backtrack";
    };
 
    type SolveBoardProps = {

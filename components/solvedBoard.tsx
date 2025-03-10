@@ -84,7 +84,7 @@ const SolvedBoard = ({ isBlind, board, steps, showDialog }: SolveBoardProps) => 
          if (isBlind) {
             elm.style.backgroundColor = action == "place" ? "#5ee9b5" : "#ffa1ad";
          } else {
-            elm.style.backgroundColor = action == "backtrack" ? "#ffa1ad" : "#5ee9b5";
+            elm.style.backgroundColor = action == "H backtrack" ? "#ffa1ad" : "#5ee9b5";
          }
       }
    }
@@ -92,14 +92,14 @@ const SolvedBoard = ({ isBlind, board, steps, showDialog }: SolveBoardProps) => 
    const addElement = (item: StepProps) => {
       if (divRef.current) {
         const newElement = document.createElement("div");
-        newElement.className = `grid grid-cols-8 text-black ${isOdd ? "bg-neutral-200" : ""}`;
+        newElement.className = `grid grid-cols-9 text-black ${isOdd ? "bg-neutral-200" : ""}`;
 
         newElement.innerHTML= `
          <h5 class='col-span-2 border-r border-black'>${countStep + 1}</h5>
          <h5 class='border-r border-black'>${item.position[0] + 1}</h5>
          <h5 class='border-r border-black'>${item.position[1] + 1}</h5>
          <h5 class='col-span-2'>${item.number}</h5>
-         <h5 class='col-span-2'>${item.action}</h5>
+         <h5 class='col-span-3'>${item.action}</h5>
         `
 
         divRef.current.appendChild(newElement);
@@ -116,7 +116,7 @@ const SolvedBoard = ({ isBlind, board, steps, showDialog }: SolveBoardProps) => 
          <div onClick={() => showDialog(false)} className='absolute top-0 right-0 pt-3 pr-3 cursor-pointer fill-white hover:fill-black/20 duration-300'>
             <UilMultiply size="30" />
          </div>
-         <div className='w-[70%] max-xl:w-[80%] max-md:w-[90%] aspect-[10/7] gap-3 max-xl:gap-2 max-md:gap-1 flex'>
+         <div className='w-[70%] max-xl:w-[80%] max-md:w-[74%] aspect-[10/7] gap-3 max-xl:gap-2 max-md:gap-1 flex'>
             <div className='w-[30%] flex flex-col gap-3 max-lg:gap-2 max-md:gap-1'>
                <div className='w-full aspect-[11/3] flex gap-3 max-xl:gap-2 max-md:gap-1 text-black font-bold'>
                   <div className='btn-solved-restart' onClick={() => restart()}>
@@ -134,12 +134,12 @@ const SolvedBoard = ({ isBlind, board, steps, showDialog }: SolveBoardProps) => 
                <div className='w-full h-full flex flex-col gap-2 bg-white rounded-xl text-center text-black p-2 overflow-hidden'>
                   <h4>Steps</h4>
                   <section className='w-full h-full overflow-hidden'>
-                     <div className='grid grid-cols-8 bg-black text-white py-1'>
+                     <div className='grid grid-cols-9 bg-black text-white py-1'>
                         <h5 className='col-span-2'>No</h5>
                         <h5>row</h5>
                         <h5>col</h5>
                         <h5 className='col-span-2'>number</h5>
-                        <h5 className='col-span-2'>action</h5>
+                        <h5 className='col-span-3'>action</h5>
                      </div>
                      <div ref={divRef} id="table-step" className='w-full h-[95%] pb-1 overflow-auto'></div>
                   </section>
