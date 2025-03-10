@@ -116,7 +116,7 @@ const SolvedBoard = ({ isBlind, board, steps, showDialog }: SolveBoardProps) => 
          <div onClick={() => showDialog(false)} className='absolute top-0 right-0 pt-3 pr-3 cursor-pointer fill-white hover:fill-black/20 duration-300'>
             <UilMultiply size="30" />
          </div>
-         <div className='w-[70%] max-xl:w-[80%] max-md:w-[74%] aspect-[10/7] gap-3 max-xl:gap-2 max-md:gap-1 flex'>
+         <div className='w-[65%] max-xl:w-[60%] max-md:w-[58%] aspect-[10/7] gap-3 max-xl:gap-2 max-md:gap-1 flex'>
             <div className='w-[30%] flex flex-col gap-3 max-lg:gap-2 max-md:gap-1'>
                <div className='w-full aspect-[11/3] flex gap-3 max-xl:gap-2 max-md:gap-1 text-black font-bold'>
                   <div className='btn-solved-restart' onClick={() => restart()}>

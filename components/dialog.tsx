@@ -61,7 +61,7 @@ const Dialog = ({ setShowDialog }: { setShowDialog: Dispatch<React.SetStateActio
             <div className='w-full mt-6 flex justify-center'>
                <button 
                   onClick={start} 
-                  className='w-[40%] aspect-[11/3] bg-black rounded-md font-bold text-xl hover:bg-black/20 hover:text-black duration-300'
+                  className='w-[40%] aspect-[11/3] bg-black rounded-md font-bold text-xl text-white hover:bg-black/20 hover:text-black duration-300'
                >
                   START
                </button>

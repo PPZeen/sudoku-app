@@ -174,9 +174,9 @@ const Page = () => {
    return (
       <>
          <div className='start-container'>
-            <div className='w-[80%] aspect-[4/2.8] py-20 px-10 flex gap-4 max-xl:w-[90%] max-xl:px-2 max-lg:w-[98%]'>
+            <div className='w-[80%] aspect-[4/2.8] py-12 px-10 flex gap-2 max-xl:w-[90%] max-xl:px-2 max-lg:w-[98%]'>
 
-               <div className='w-[34%] max-lg:w-[38%] h-[95%] bg-white/40 flex flex-col items-center gap-4 max-xl:gap-2 max-md:gap-0 py-4 rounded-xl'>
+               <div className='w-[34%] h-[80vh] max-xl:h-[75vh] max-lg:h-[65vh] max-md:h-[55vh] bg-white/40 flex flex-col items-center gap-4 max-xl:gap-2 max-md:gap-0 py-4 rounded-xl'>
                   <section className='section-detail'>
                      <div className='w-[70%] flex items-center gap-1'>
                         <UilStopwatch className="option-icon fill-neutral-700" />
@@ -256,8 +256,8 @@ const Page = () => {
                </div>
 
                <div className='w-[64%] h-full flex flex-col items-center justify-start gap-3'>
-                  <div className="h-[85%] w-[100%] flex justify-center">
-                     <div className='board w-[80%] max-xl:w-[85%] max-lg:w-[90%] max-md:w-[95%] bg-black border grid grid-rows-9 rounded-md overflow-hidden'>
+                  <div className="aspect-square w-[75vh] max-xl:w-[70vh] max-lg:w-[60vh] max-md:w-[50vh] flex justify-center">
+                     <div className='board w-full h-full bg-black border grid grid-rows-9 rounded-md overflow-hidden'>
                         {board.map((rows, rowIndex) => 
                            <div className='fill-rows' key={`row-${rowIndex}`}>
                               {rows.map((col, colIndex) => 
@@ -275,7 +275,7 @@ const Page = () => {
                   </div>
 
                   <div className="h-[15%] w-[100%] flex justify-center">
-                     <div className="selected w-[80%] max-xl:w-[85%] max-lg:w-[90%] max-md:w-[95%] aspect-[9/1] grid grid-cols-9 gap-2">
+                     <div className="selected w-[75vh] max-xl:w-[70vh] max-lg:w-[60vh] max-md:w-[50vh] aspect-[9/1] grid grid-cols-9 gap-2">
                         {size.map((num, i) => 
                            <React.Fragment key={`selected-number-${i}`}>
                               <input type="radio" id={`number-${num}`} name="num-selected" defaultChecked={num==1} />

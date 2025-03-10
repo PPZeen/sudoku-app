@@ -96,7 +96,7 @@ input[type="radio"] {
 
 /* --------------------- Board -------------------- */
 .start-container {
-  @apply w-full h-screen flex flex-col items-center;     
+  @apply w-full h-screen overflow-hidden flex flex-col items-center;     
 }
 
 .shadow-box {
