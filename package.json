@@ -12,7 +12,7 @@
     "@iconscout/react-unicons": "^2.2.4",
     "@iconscout/react-unicons-monochrome": "^1.2.0",
     "@iconscout/unicons": "^4.2.0",
-    "next": "15.1.7",
+    "next": "^15.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

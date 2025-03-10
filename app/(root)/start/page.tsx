@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 
 import { useSearchParams } from 'next/navigation';
+
 import { UilPlay, UilPause, UilStopwatch, UilBars, UilTachometerFastAlt, UilCheckCircle, UilLightbulbAlt, UilRedo, UilPuzzlePiece } from '@iconscout/react-unicons';
 
 import { GenerateSudoku, SolveSudokuBlindSearch, SolveSudokuHeuristicSearch } from '@/lib';
@@ -63,7 +64,7 @@ const Page = () => {
 
       return () => clearInterval(timer);
 
-   }, [isRunning, isEndGame, showReStart, showSolvedBlindSearch, showSolvedHeuristicSearch]);
+   }, [isRunning, isEndGame, showReStart, isGenerate, level, showSolvedBlindSearch, showSolvedHeuristicSearch]);
 
    const setHandlerNumber = (rowIndex: number, colIndex: number, value=number) => {
       if (value == 0) return
@@ -171,7 +172,7 @@ const Page = () => {
    }
 
    return (
-      <>
+      <Suspense fallback={<div>Loading...</div>}>
          <div className='start-container'>
             <div className='w-[80%] aspect-[4/2.8] py-20 px-10 flex gap-4 max-xl:w-[90%] max-xl:px-2 max-lg:w-[98%]'>
 
@@ -297,7 +298,7 @@ const Page = () => {
             {showSolvedHeuristicSearch && (<SolvedBoard isBlind={false} board={board} steps={stepsHeuristicSearch as StepProps[]} showDialog={setShowSolvedHeuristicSearch} />)}
 
          </div>
-      </>
+      </Suspense>
    )
 }
 export default Page
