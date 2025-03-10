@@ -12,12 +12,12 @@ type SolveResult = {
 };
 
 function SolveSudokuHeuristicSearch(board: Board): SolveResult {
-  let steps: Step[] = [];
-  let markgrid: number[][][] = Array.from({ length: 3 }, () =>
+  const steps: Step[] = [];
+  const markgrid: number[][][] = Array.from({ length: 3 }, () =>
     Array.from({ length: 3 }, () => Array(9).fill(0))
   );
-  let markrow: number[][] = Array.from({ length: 9 }, () => Array(9).fill(0));
-  let markcol: number[][] = Array.from({ length: 9 }, () => Array(9).fill(0));
+  const markrow: number[][] = Array.from({ length: 9 }, () => Array(9).fill(0));
+  const markcol: number[][] = Array.from({ length: 9 }, () => Array(9).fill(0));
 
   function isValid(row: number, col: number, num: number): boolean {
     num--;
@@ -32,7 +32,7 @@ function SolveSudokuHeuristicSearch(board: Board): SolveResult {
     for (let i = 0; i < 9; i++) {
       for (let j = 0; j < 9; j++) {
         if (board[i][j] !== -1) {
-          let num = board[i][j] - 1;
+          const num = board[i][j] - 1;
           markgrid[Math.floor(i / 3)][Math.floor(j / 3)][num] = 1;
           markrow[i][num] = 1;
           markcol[j][num] = 1;
@@ -55,10 +55,10 @@ function SolveSudokuHeuristicSearch(board: Board): SolveResult {
               }
             }
             if (possibleNums.length === 1) {
-              let num = possibleNums[0];
+              const num = possibleNums[0];
               board[row][col] = num;
               steps.push({ position: [row, col], number: num, action: "place" });
-              let index = num - 1;
+              const index = num - 1;
               markgrid[Math.floor(row / 3)][Math.floor(col / 3)][index] = 1;
               markrow[row][index] = 1;
               markcol[col][index] = 1;
@@ -76,7 +76,7 @@ function SolveSudokuHeuristicSearch(board: Board): SolveResult {
         if (board[row][col] === -1) {
           for (let num = 1; num <= 9; num++) {
             if (isValid(row, col, num)) {
-              let indexNum = num - 1;
+              const indexNum = num - 1;
               board[row][col] = num;
               markgrid[Math.floor(row / 3)][Math.floor(col / 3)][indexNum] = 1;
               markrow[row][indexNum] = 1;
