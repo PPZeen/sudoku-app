@@ -11,7 +11,7 @@ type SolveResult = {
   steps: Step[];
 };
 
-function solveSudokuHeuristicSearch(board: Board): SolveResult {
+function SolveSudokuHeuristicSearch(board: Board): SolveResult {
   let steps: Step[] = [];
   let markgrid: number[][][] = Array.from({ length: 3 }, () =>
     Array.from({ length: 3 }, () => Array(9).fill(0))
@@ -109,4 +109,4 @@ function solveSudokuHeuristicSearch(board: Board): SolveResult {
   return { solvedBoard: board, steps };
 }
 
-export default solveSudokuHeuristicSearch;
+export default SolveSudokuHeuristicSearch;

@@ -30,7 +30,7 @@ function fillSudoku(board: Board): boolean {
     for (let col = 0; col < SIZE; col++) {
       if (board[row][col] === 0) {
         const numbers = [...Array(SIZE).keys()].map((x) => x + 1).sort(() => Math.random() - 0.5);
-        for (let num of numbers) {
+        for (const num of numbers) {
           if (isSafe(board, row, col, num)) {
             board[row][col] = num;
             if (fillSudoku(board)) return true;
@@ -89,7 +89,7 @@ function removeNumbers(board: Board, attempts: number): void {
   }
 }
 
-function generateSudoku(difficulty: number = 1): Board {
+function GenerateSudoku(difficulty: number = 1): Board {
   const SIZE = 9;
   const difficultyLevels: DifficultyLevels = {
     1: 20,
@@ -104,4 +104,4 @@ function generateSudoku(difficulty: number = 1): Board {
   return board;
 }
 
-export default generateSudoku; // Import this in your Next.js component to generate Sudoku puzzles
+export default GenerateSudoku; // Import this in your Next.js component to generate Sudoku puzzles

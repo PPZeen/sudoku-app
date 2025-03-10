@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation';
 import { UilPlay, UilPause, UilStopwatch, UilBars, UilTachometerFastAlt, UilCheckCircle, UilLightbulbAlt, UilRedo, UilPuzzlePiece } from '@iconscout/react-unicons';
 
-import { generateSudoku, solveSudokuBlindSearch, solveSudokuHeuristicSearch } from '@/lib';
+import { GenerateSudoku, SolveSudokuBlindSearch, SolveSudokuHeuristicSearch } from '@/lib';
 import { Dialog, GamePause, GameSolved, SolvedBoard, ButtonDetail } from "@/components";
 
 const Page = () => {
@@ -38,17 +38,17 @@ const Page = () => {
 
    useEffect(() => {
       if (!isGenerate) {
-         const sudoku = generateSudoku(level);
+         const sudoku = GenerateSudoku(level);
          setBoard(sudoku);
          setBoardCurrent(sudoku);
          
          const copySudoku = sudoku.map(row => [...row]);
-         const solvedByBlindSearch = solveSudokuBlindSearch(copySudoku);
+         const solvedByBlindSearch = SolveSudokuBlindSearch(copySudoku);
          setBoardBlindSearch(solvedByBlindSearch["solvedBoard"]);
          setStepsBlindSearch(solvedByBlindSearch["steps"]);
 
          const copySudoku2 = sudoku.map(row => [...row]);
-         const solvedByHeuristicSearch = solveSudokuHeuristicSearch(copySudoku2);
+         const solvedByHeuristicSearch = SolveSudokuHeuristicSearch(copySudoku2);
          setBoardHeuristicSearch(solvedByHeuristicSearch["solvedBoard"]);
          setStepsHeuristicSearch(solvedByHeuristicSearch["steps"]);
 

@@ -1,3 +1,3 @@
-export { default as generateSudoku } from "./ganerateSudoku";
-export { default as solveSudokuBlindSearch } from "./solveSudokuBlindSearch";
-export { default as solveSudokuHeuristicSearch} from "./solveSudokuHeuristicSearch";
+export { default as GenerateSudoku } from "./ganerateSudoku";
+export { default as SolveSudokuBlindSearch } from "./solveSudokuBlindSearch";
+export { default as SolveSudokuHeuristicSearch} from "./solveSudokuHeuristicSearch";

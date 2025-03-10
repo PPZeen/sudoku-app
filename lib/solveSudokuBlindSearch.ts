@@ -50,10 +50,10 @@ function blindSearch(board: Board, steps: StepProps[]): boolean {
   return true;
 }
 
-function solveSudokuBlindSearch(board: Board): SolveResult {
+function SolveSudokuBlindSearch(board: Board): SolveResult {
   const steps: StepProps[] = [];
   blindSearch(board, steps);
   return { solvedBoard: board, steps };
 }
 
-export default solveSudokuBlindSearch; // Import this function to solve Sudoku and track each step
+export default SolveSudokuBlindSearch; // Import this function to solve Sudoku and track each step
