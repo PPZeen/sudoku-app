@@ -16,6 +16,149 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  /* background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
+
+  @apply bg-gradient-to-tr from-indigo-500 from-10% via-sky-500 via-30% to-pink-300 to-90%;
+}
+
+h1 {
+  @apply text-6xl font-bold
+}
+
+h2 {
+  @apply text-4xl font-bold max-lg:text-2xl max-md:text-xl max-sm:text-base
+}
+
+h3 {
+  @apply text-3xl font-bold max-lg:text-xl max-md:text-lg max-sm:text-sm
+}
+
+h4 {
+  @apply text-xl font-bold max-lg:text-lg max-md:text-sm max-sm:text-xs
+}
+
+h5 {
+  @apply max-lg:text-sm max-md:text-xs max-sm:text-[8px]
+}
+
+p {
+  @apply max-lg:text-xs max-md:text-[8px] max-sm:text-[6px]
+}
+
+.wrapper {
+  @apply w-full h-screen flex justify-center
+}
+
+.btn-start {
+  @apply w-[50%] aspect-[11/3] shadow-box rounded-xl text-black text-3xl font-bold hover:bg-white/20 hover:text-white duration-300
+}
+
+/* ----------- Dialog to Start Game -------------- */
+.level-option .level-card {
+  @apply w-[30%] text-black bg-white flex flex-col justify-center items-center cursor-pointer p-2 border-2 rounded-md duration-300
+}
+
+.level-select {
+  @apply w-6 h-6 my-4 bg-neutral-300 rounded-full outline outline-offset-2 outline-neutral-300 duration-300
+}
+
+input[type="radio"] {
+  @apply hidden
+}
+
+#level-1:hover + .level-card,
+#level-1:checked + .level-card {
+  @apply border-green-600 text-green-600 fill-green-600
+}
+#level-1:hover + .level-card .level-select,
+#level-1:checked + .level-card .level-select {
+  @apply bg-green-600 outline-green-600
+}
+
+#level-2:hover + .level-card,
+#level-2:checked + .level-card {
+  @apply border-amber-600 text-amber-600 fill-amber-600
+}
+#level-2:hover + .level-card .level-select,
+#level-2:checked + .level-card .level-select {
+  @apply bg-amber-600 outline-amber-600
+}
+
+#level-3:hover + .level-card,
+#level-3:checked + .level-card {
+  @apply border-red-600 text-red-600 fill-red-600
+}
+#level-3:hover + .level-card .level-select,
+#level-3:checked + .level-card .level-select {
+  @apply bg-red-600 outline-red-600
+}
+
+/* --------------------- Board -------------------- */
+.start-container {
+  @apply w-full h-screen flex flex-col items-center;     
+}
+
+.shadow-box {
+  @apply bg-white/80;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.fill-rows {
+  @apply w-full aspect-[9/1] border-b border-white/40 grid grid-cols-9 gap-[1px]
+}
+.fill-rows-black {
+  @apply w-full aspect-[9/1] border-b-2 border-black grid grid-cols-9 gap-[1px]
+}
+.fill {
+  @apply bg-white text-blue-700 flex justify-center items-center cursor-pointer duration-300
+}
+.lock {
+  @apply bg-gray-200 cursor-default text-black
+}
+
+.board > .fill-rows:nth-child(3), .fill-rows:nth-child(6) {
+  @apply border-b-2 border-black
+}
+.board > .fill-rows:nth-child(9) {
+  @apply border-none
+}
+.fill-rows > .fill:nth-child(3), .fill:nth-child(6) {
+  @apply border-r border-black
+}
+
+.number-selected {
+  @apply w-[1/9] aspect-square bg-white/60 flex justify-center items-center text-black rounded-md cursor-pointer 
+                 duration-300 hover:bg-white/95;
+}
+
+.selected > input:checked + .number-selected {
+  @apply bg-white text-blue-600
+}
+
+/* ----------------- detail ----------------- */
+
+.section-detail {
+  @apply w-full flex flex-col justify-center items-center gap-1
+}
+.option-icon-large {
+  @apply h-[44px] w-[44px] max-lg:h-[34px] max-lg:w-[34px] max-md:h-[28px] max-md:w-[28px] max-sm:h-[22px] max-sm:w-[22px]
+}
+.option-icon-mid {
+  @apply h-[34px] w-[34px] max-lg:h-[26px] max-lg:w-[26px] max-md:h-[20px] max-md:w-[20px] max-sm:h-[16px] max-sm:w-[16px]
+}
+.option-icon {
+  @apply h-[28px] w-[28px] max-lg:h-[20px] max-lg:w-[20px] max-md:h-[16px] max-md:w-[16px] max-sm:h-[12px] max-sm:w-[12px]
+}
+.notification {
+  @apply absolute top-[-6px] right-[-6px] w-6 h-6 max-md:w-4 max-md:h-4 max-sm:w-3 max-sm:h-3 rounded-full bg-red-400 flex justify-center items-center
+}
+/* ----------------- solved --------------------- */
+
+.btn-solved-toggle {
+  @apply w-full bg-white rounded-xl flex justify-center items-center gap-2 text-3xl
+         cursor-pointer hover:text-white hover:fill-white hover:bg-white/20 duration-300
+}
+.btn-solved-restart {
+  @apply h-full aspect-square bg-white rounded-xl flex flex-col justify-center items-center cursor-pointer hover:text-white hover:fill-white hover:bg-white/20 duration-300
 }
