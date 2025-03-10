@@ -8,7 +8,7 @@ import { UilPlay, UilPause, UilStopwatch, UilBars, UilTachometerFastAlt, UilChec
 import { generateSudoku, solveSudokuBlindSearch, solveSudokuHeuristicSearch } from '@/lib';
 import { Dialog, GamePause, GameSolved, SolvedBoard, ButtonDetail } from "@/components";
 
-const page = () => {
+const Page = () => {
    const searchParams = useSearchParams();
    const level = parseInt(searchParams.get('level')!);
 
@@ -293,4 +293,4 @@ const page = () => {
       </>
    )
 }
-export default page
+export default Page
